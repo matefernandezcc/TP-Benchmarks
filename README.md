@@ -16,7 +16,7 @@ Para medir el tiempo de ejecución se uso la función time de Ubuntu
 * The 'time' command in Linux is used to determine the duration of execution of a particular command. It is used by prefixing your command with ‘time’, ie: time [command].
 
 ## Busqueda Binaria (Array ordenado)
-- Usando un array de 100 mil elementos para todas las pruebas.
+- Usando un array de 1 millon de elementos (números impares) para todas las pruebas.
 - Valor buscado: 777777
 
 ===== COBOL =====
