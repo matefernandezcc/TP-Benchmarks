@@ -1,36 +1,27 @@
-(function () {
-    function linearSearch(arr, key) {
-        for (var i = 0; i < arr.length; i++) {
-            if (arr[i] === key) {
-                return i; // Retorna la posición encontrada
-            }
+// Crear un array con 1 millón de números impares
+var arraySize = 1000000;
+var oddNumbers = [];
+var currentOddNumber = 1;
+for (var i = 0; i < arraySize; i++) {
+    oddNumbers.push(currentOddNumber);
+    currentOddNumber += 2;
+}
+// Función para realizar búsqueda lineal
+function linearSearch(arr, target) {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] === target) {
+            return i; // Retorna el índice si se encuentra el objetivo
         }
-        return -1; // Retorna -1 si no se encuentra el valor
     }
-    function shuffleArray(arr) {
-        var _a;
-        for (var i = arr.length - 1; i > 0; i--) {
-            var j = Math.floor(Math.random() * (i + 1));
-            _a = [arr[j], arr[i]], arr[i] = _a[0], arr[j] = _a[1]; // Intercambia los elementos
-        }
-    }
-    // Obtener el valor de la clave desde los argumentos de la línea de comandos
-    var key = parseInt(process.argv[2], 10);
-    if (isNaN(key)) {
-        console.error('Por favor, proporciona un número válido como clave a buscar.');
-        process.exit(1);
-    }
-    // Inicializar el array con valores del 1 al 100,000
-    var array = Array.from({ length: 100000 }, function (_, i) { return i + 1; });
-    // Desordenar el array
-    shuffleArray(array);
-    console.time('linearSearch');
-    var position = linearSearch(array, key);
-    console.timeEnd('linearSearch');
-    if (position !== -1) {
-        console.log("Key found at position ".concat(position));
-    }
-    else {
-        console.log('Key not found');
-    }
-})();
+    return -1; // Retorna -1 si no se encuentra el objetivo
+}
+// Número a buscar
+var targetNumber = 777777; // Asegúrate de que esta variable no esté declarada más de una vez en el archivo
+// Realizar la búsqueda lineal
+var index = linearSearch(oddNumbers, targetNumber);
+if (index !== -1) {
+    console.log("N\u00FAmero ".concat(targetNumber, " encontrado en la posici\u00F3n ").concat(index, "."));
+}
+else {
+    console.log("N\u00FAmero ".concat(targetNumber, " no encontrado."));
+}

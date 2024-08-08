@@ -1,44 +1,35 @@
        IDENTIFICATION DIVISION.
-       PROGRAM-ID. BusquedaLineal.
+       PROGRAM-ID. BusquedaLinealImpares.
 
        DATA DIVISION.
        WORKING-STORAGE SECTION.
            01 ARREGLO.
-               05 ELEMENTO PIC 9(6) OCCURS 100000 TIMES INDEXED BY IDX.
-           01 CLAVE PIC 9(6).
-           01 INDICE PIC 9(6) VALUE 1.
+               05 ELEMENTO PIC 9(7) OCCURS 1000000 TIMES INDEXED BY IDX.
+           01 CLAVE PIC 9(7) VALUE 777777.
            01 ENCONTRADO PIC X VALUE 'N'.
-           01 NUM-ITEMS PIC 9(6) VALUE 100000.
-           01 TEMP PIC 9(6).
-           01 RAND-INDEX PIC 9(6).
-           01 MAX-RAND PIC 9(6) VALUE 100000.
-           01 ENTRADA-USUARIO PIC X(10).
+           01 IMPAR PIC 9(7) VALUE 1.
+           01 I PIC 9(7) VALUE 1.
+           01 ENCONTRADO-EN-INDICE PIC 9(7) VALUE 1.
 
        PROCEDURE DIVISION.
-           DISPLAY "Ingrese el valor a buscar:"
-           ACCEPT ENTRADA-USUARIO
-           MOVE FUNCTION NUMVAL(ENTRADA-USUARIO) TO CLAVE
-
-           PERFORM VARYING IDX FROM 1 BY 1 UNTIL IDX > NUM-ITEMS
-               MOVE IDX TO ELEMENTO(IDX)
+           DISPLAY "Buscando el valor: " CLAVE
+           
+           PERFORM VARYING IDX FROM 1 BY 1 UNTIL IDX > 1000000
+               MOVE IMPAR TO ELEMENTO(IDX)
+               ADD 2 TO IMPAR
            END-PERFORM
 
-           PERFORM VARYING IDX FROM NUM-ITEMS BY -1 UNTIL IDX < 1
-               COMPUTE RAND-INDEX = FUNCTION RANDOM(NUM-ITEMS) + 1
-               MOVE ELEMENTO(IDX) TO TEMP
-               MOVE ELEMENTO(RAND-INDEX) TO ELEMENTO(IDX)
-               MOVE TEMP TO ELEMENTO(RAND-INDEX)
-           END-PERFORM
-
-           PERFORM VARYING INDICE FROM 1 BY 1 UNTIL INDICE > NUM-ITEMS OR ENCONTRADO = 'Y'
-               IF ELEMENTO(INDICE) = CLAVE THEN
+           PERFORM UNTIL I > 1000000 OR ENCONTRADO = 'Y'
+               IF ELEMENTO(I) = CLAVE THEN
                    MOVE 'Y' TO ENCONTRADO
+                   MOVE I TO ENCONTRADO-EN-INDICE
                END-IF
+               ADD 1 TO I
            END-PERFORM
 
            IF ENCONTRADO = 'Y'
-               DISPLAY "CLAVE ENCONTRADA"
+               DISPLAY "CLAVE ENCONTRADA EN LA POSICIÓN " ENCONTRADO-EN-INDICE
            ELSE
-               DISPLAY "CLAVE NO ENCONTRADA."
+               DISPLAY "CLAVE NO ENCONTRADA".
 
            STOP RUN.

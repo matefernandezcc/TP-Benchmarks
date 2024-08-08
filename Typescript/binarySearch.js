@@ -1,36 +1,36 @@
-(function () {
-    function binarySearch(arr, key) {
-        var low = 0;
-        var high = arr.length - 1;
-        while (low <= high) {
-            var mid = Math.floor((low + high) / 2);
-            if (arr[mid] === key) {
-                return mid; // Retorna la posición encontrada
-            }
-            else if (arr[mid] > key) {
-                high = mid - 1;
-            }
-            else {
-                low = mid + 1;
-            }
+// Crear un array con 1 millón de números impares
+var arraySize = 1000000;
+var oddNumbers = [];
+var currentOddNumber = 1;
+for (var i = 0; i < arraySize; i++) {
+    oddNumbers.push(currentOddNumber);
+    currentOddNumber += 2;
+}
+// Función para realizar búsqueda binaria
+function binarySearch(arr, target) {
+    var left = 0;
+    var right = arr.length - 1;
+    while (left <= right) {
+        var mid = Math.floor((left + right) / 2);
+        if (arr[mid] === target) {
+            return mid; // Retorna el índice si se encuentra el objetivo
         }
-        return -1; // Retorna -1 si no se encuentra el valor
+        else if (arr[mid] < target) {
+            left = mid + 1;
+        }
+        else {
+            right = mid - 1;
+        }
     }
-    // Obtener el valor de la clave desde los argumentos de la línea de comandos
-    var key = parseInt(process.argv[2], 10);
-    if (isNaN(key)) {
-        console.error('Por favor, proporciona un número válido como clave a buscar.');
-        process.exit(1);
-    }
-    // Inicializar el array con valores del 1 al 100000
-    var array = Array.from({ length: 100000 }, function (_, i) { return i + 1; });
-    console.time('binarySearch');
-    var position = binarySearch(array, key);
-    console.timeEnd('binarySearch');
-    if (position !== -1) {
-        console.log("Key found at position ".concat(position));
-    }
-    else {
-        console.log('Key not found');
-    }
-})();
+    return -1; // Retorna -1 si no se encuentra el objetivo
+}
+// Número a buscar
+var targetNumber = 777777;
+// Realizar la búsqueda binaria
+var index = binarySearch(oddNumbers, targetNumber);
+if (index !== -1) {
+    console.log("N\u00FAmero ".concat(targetNumber, " encontrado en la posici\u00F3n ").concat(index, "."));
+}
+else {
+    console.log("N\u00FAmero ".concat(targetNumber, " no encontrado."));
+}

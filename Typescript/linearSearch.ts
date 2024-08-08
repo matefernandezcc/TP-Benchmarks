@@ -1,41 +1,31 @@
-(function() {
-    function linearSearch(arr: number[], key: number): number {
-        for (let i = 0; i < arr.length; i++) {
-            if (arr[i] === key) {
-                return i; // Retorna la posición encontrada
-            }
+// Crear un array con 1 millón de números impares
+const arraySize = 1000000;
+const oddNumbers: number[] = [];
+let currentOddNumber = 1;
+
+for (let i = 0; i < arraySize; i++) {
+    oddNumbers.push(currentOddNumber);
+    currentOddNumber += 2;
+}
+
+// Función para realizar búsqueda lineal
+function linearSearch(arr: number[], target: number): number {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === target) {
+            return i; // Retorna el índice si se encuentra el objetivo
         }
-        return -1; // Retorna -1 si no se encuentra el valor
     }
+    return -1; // Retorna -1 si no se encuentra el objetivo
+}
 
-    function shuffleArray(arr: number[]): void {
-        for (let i = arr.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [arr[i], arr[j]] = [arr[j], arr[i]]; // Intercambia los elementos
-        }
-    }
+// Número a buscar
+const targetNumber = 777777; // Asegúrate de que esta variable no esté declarada más de una vez en el archivo
 
-    // Obtener el valor de la clave desde los argumentos de la línea de comandos
-    const key = parseInt(process.argv[2], 10);
+// Realizar la búsqueda lineal
+const index = linearSearch(oddNumbers, targetNumber);
 
-    if (isNaN(key)) {
-        console.error('Por favor, proporciona un número válido como clave a buscar.');
-        process.exit(1);
-    }
-
-    // Inicializar el array con valores del 1 al 100,000
-    const array = Array.from({ length: 100000 }, (_, i) => i + 1);
-
-    // Desordenar el array
-    shuffleArray(array);
-
-    console.time('linearSearch');
-    const position = linearSearch(array, key);
-    console.timeEnd('linearSearch');
-    
-    if (position !== -1) {
-        console.log(`Key found at position ${position}`);
-    } else {
-        console.log('Key not found');
-    }
-})();
+if (index !== -1) {
+    console.log(`Número ${targetNumber} encontrado en la posición ${index}.`);
+} else {
+    console.log(`Número ${targetNumber} no encontrado.`);
+}
