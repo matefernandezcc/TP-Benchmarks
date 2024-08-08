@@ -20,6 +20,7 @@ Para medir el tiempo de ejecución se uso la función time de Ubuntu
 - Valor buscado: 777777
 
 ===== COBOL =====
+
 777777 ENCONTRADO EN LA POSICIÓN 0388889
 
 real  
@@ -32,6 +33,7 @@ sys
 0m0.010s  
 
 ===== Typescript =====
+
 Número 777777 encontrado en la posición 388888.
 
 real  
@@ -46,6 +48,7 @@ sys
 ## Busqueda Lineal (Array Desordenado)
 
 ===== COBOL =====
+
 real  
 0m0.150s  
 
@@ -56,6 +59,7 @@ sys
 0m0.010s  
 
 ===== Typescript =====
+
 real  
 0m0.069s  
 
