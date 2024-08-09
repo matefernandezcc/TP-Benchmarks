@@ -1,17 +1,23 @@
-# Trabajo práctico N°2 Benchmark
-Comparación de rendimiento con algoritmos de ordenamiento entre COBOL y Typescript
+# 📝 Trabajo Práctico N°2: Benchmark de Algoritmos de Ordenamiento
 
-# Makefile
-make all: Compila los ejecutables y los guardan en las carpetas de Typescript como en Cobol respectivamente
+**Comparación de rendimiento entre COBOL y TypeScript**
 
-make clean: Elimina todos los ejecutables
+---
 
-# Tiempos de ejecución
-Para medir el tiempo de ejecución se uso la función time de Ubuntu
+## 🛠️ Makefile
+- **`make all`**: Compila los ejecutables y los guarda en las carpetas de TypeScript y COBOL respectivamente.
+- **`make clean`**: Elimina todos los ejecutables.
 
-* The 'time' command in Linux is used to determine the duration of execution of a particular command. It is used by prefixing your command with ‘time’, ie: time [command].
+---
 
-# Tiempos de Ejecución
+## ⏱️ Tiempos de Ejecución
+Para medir el tiempo de ejecución se utilizó la función `time` de Ubuntu.
+
+> **Nota**: El comando `time` en Linux se utiliza para determinar la duración de ejecución de un comando específico. Se usa prefijando tu comando con `time`, es decir: `time [comando]`.
+
+---
+
+## 📊 Resultados de Ejecución
 
 | **Operación**                     | **Lenguaje**   | **Real**        | **User**        | **Sys**         |
 |-----------------------------------|----------------|-----------------|-----------------|-----------------|
@@ -22,4 +28,12 @@ Para medir el tiempo de ejecución se uso la función time de Ubuntu
 | **Bubble Sort con 10 mil elementos** | COBOL       | `0m28.079s`      | `0m28.073s`      | `0m0.000s`       |
 |                                   | TypeScript     | `0m0.216s`       | `0m0.203s`       | `0m0.011s`       |
 
+---
 
+### 🎯 Observaciones
+- COBOL muestra un rendimiento significativamente más lento en operaciones con grandes volúmenes de datos, como el Bubble Sort con 10,000 elementos.
+- TypeScript, aunque generalmente más lento en operaciones pequeñas, supera a COBOL en tareas más complejas.
+
+---
+
+💡 **Conclusión**: El lenguaje y la naturaleza del algoritmo juegan un papel crucial en el rendimiento. COBOL es más eficiente para tareas simples y pequeñas, mientras que TypeScript maneja mejor grandes volúmenes de datos.
