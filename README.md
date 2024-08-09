@@ -1,4 +1,4 @@
-# TP Benchmarks
+# Trabajo práctico N°2 Benchmark
 Comparación de rendimiento con algoritmos de ordenamiento entre COBOL y Typescript
 
 # Makefile
