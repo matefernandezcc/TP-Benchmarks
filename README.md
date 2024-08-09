@@ -11,7 +11,7 @@ Para medir el tiempo de ejecución se uso la función time de Ubuntu
 
 * The 'time' command in Linux is used to determine the duration of execution of a particular command. It is used by prefixing your command with ‘time’, ie: time [command].
 
-## Comparativa de Tiempos de Ejecución
+# Tiempos de Ejecución
 
 | **Operación**                     | **Lenguaje** | **real**      | **user**      | **sys**       |
 |-----------------------------------|--------------|---------------|---------------|---------------|
