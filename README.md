@@ -14,7 +14,6 @@ Para medir el tiempo de ejecución se uso la función time de Ubuntu
 ## Bubble Sort con 150 elementos
 
 ===== COBOL =====
-
 - real    0m0.012s
 - user    0m0.006s
 - sys     0m0.000s
