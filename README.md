@@ -1,4 +1,4 @@
-# 📝 Trabajo Práctico N°2: Benchmark de Algoritmos de Ordenamiento
+# 📝 Trabajo Práctico N°2: Benchmark de Ordenamiento
 
 **Comparación de rendimiento entre COBOL y TypeScript**
 
